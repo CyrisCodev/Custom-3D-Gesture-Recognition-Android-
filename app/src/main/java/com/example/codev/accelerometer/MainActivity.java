@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     int useGravity=0;
     float gravityFloat=0;
     String logs="0.000 0.000 0.000";
+    String last_sent_string="0";
     String sUp="Up", sDown="Down", sLeft="Left", sRight="Right";
 
     @Override
@@ -125,7 +126,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                             initialTime = 0;
                             addDelayOnButtonClick();
                             unregistersensor();
-                            sendReadingsToPC(logs);
+                            if(logs!=last_sent_string)
+                            {
+                                sendReadingsToPC(logs);
+                                last_sent_string=logs;
+                            }
                             //stopIncrmenting();
                     }
                 }
