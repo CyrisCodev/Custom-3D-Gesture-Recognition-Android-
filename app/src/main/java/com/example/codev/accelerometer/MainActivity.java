@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Sensor senAccelerometer;
 
     private static final int ALARM_STATE_DELAY = 1;
-    private static int SPLASH_TIME_OUT = 2500;
+    private static int SPLASH_TIME_OUT = 1200;
+    int DELAY_COUNT=1;
 
     private long lastUpdate = 0;
     private float last_x;
@@ -104,31 +105,30 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-                switch (event.getAction())
-                {
-                    case MotionEvent.ACTION_DOWN:
-                        Log.i("button", "pressed");
-                        //startIncrmenting();
-                        countReadings=0;
-                        registersensor();
-                        logs="0.0000 0.0000 0.0000";
-                        break;
+                if(DELAY_COUNT==1) {
+                    switch (event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            Log.i("button", "pressed");
+                            //startIncrmenting();
+                            countReadings = 0;
+                            registersensor();
+                            logs = "0.0000 0.0000 0.0000";
+                            break;
 
-                    case MotionEvent.ACTION_UP:
-                        Log.i("button", "not pressed");
+                        case MotionEvent.ACTION_UP:
+                            Log.i("sentreadingssss", logs);
 
-                        if(countReadings<100)
-                        {
-                            Toast.makeText(getApplicationContext(), "very small gesture, TRY AGAIN", Toast.LENGTH_SHORT).show();
-                        }
+                            if (countReadings < 100) {
+                                Toast.makeText(getApplicationContext(), "very small gesture, TRY AGAIN", Toast.LENGTH_SHORT).show();
+                            }
 
-                        initialTime=0;
-                        addDelayOnButtonClick();
-                        unregistersensor();
-                        sendReadingsToPC(logs);
-                        //stopIncrmenting();
+                            initialTime = 0;
+                            addDelayOnButtonClick();
+                            unregistersensor();
+                            sendReadingsToPC(logs);
+                            //stopIncrmenting();
+                    }
                 }
-
                 return true;
 
 
@@ -430,24 +430,26 @@ float x, y, z, gx=0, gy=0, gz=0;
     @Override
     protected void onPause() {
         super.onPause();
-        bsense.setEnabled(false);
+       // bsense.setEnabled(false);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        bsense.setEnabled(true);
+       // bsense.setEnabled(true);
     }
 
     public void addDelayOnButtonClick()
     {
-        bsense.setEnabled(false);
+        //bsense.setEnabled(false);
+        DELAY_COUNT=0;
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
 
-                bsense.setEnabled(true);
+                DELAY_COUNT=1;
+               //bsense.setEnabled(true);
 
             }
         }, SPLASH_TIME_OUT);
