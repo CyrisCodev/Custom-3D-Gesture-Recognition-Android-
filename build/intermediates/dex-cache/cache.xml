@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\exploded-aar\com.github.medyo\fancybuttons\1.5\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="511320053169bdc5d8445a414db09e7cdd10d920">
+        <dex dex="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\pre-dexed\debug\classes-bcb551813e3cc6e6200d922bb9ee2242c448bcca.jar" />
+    </item>
+
+</items>

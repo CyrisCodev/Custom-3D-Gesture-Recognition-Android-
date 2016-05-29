@@ -1,0 +1,258 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:id="@+id/ll_settings"
+        android:visibility="gone"
+        android:orientation="vertical"
+        >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+
+        >
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:hint="IPAddress"
+            android:id="@+id/activity_main_etIPAddress"
+            />
+
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:hint="Port"
+            android:inputType="number"
+            android:id="@+id/activity_main_etIPPort"
+            />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        >
+
+
+        <EditText
+            android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:hint="FileName"
+
+            android:id="@+id/activity_main_etFileName"
+            />
+
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Save File"
+            android:id="@+id/activity_main_bsaveFile"
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:orientation="horizontal"
+        >
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="X:"
+            android:textSize="18dp"
+            android:gravity="center_vertical|right"
+            />
+
+        <TextView android:text="0" android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:gravity="center_vertical|left"
+        android:id="@+id/activity_main_tv_x"
+        android:textSize="15dp"
+        />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Y:"
+            android:textSize="18dp"
+            android:gravity="center_vertical|right"
+            />
+
+        <TextView android:text="0" android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical|left"
+            android:id="@+id/activity_main_tv_y"
+            android:textSize="15dp"
+            />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Z:"
+            android:textSize="18dp"
+            android:gravity="center_vertical|right"
+            />
+
+        <TextView android:text="0" android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical|left"
+            android:id="@+id/activity_main_tv_z"
+            android:textSize="15dp"
+            />
+
+
+
+    </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:id="@+id/ll_buttons"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:id="@+id/iv_upbutton"
+            android:src="@drawable/ic_up_arrow"
+            />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:id="@+id/iv_leftbutton"
+                android:src="@drawable/ic_left_arrow"
+                />
+
+            <ImageView
+                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:id="@+id/iv_rightbutton"
+                android:src="@drawable/ic_right_arrow"
+                />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:id="@+id/iv_downbutton"
+            android:src="@drawable/ic_down_arrow"
+            />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Count:"
+            android:textSize="25dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_vertical|right"
+            />
+        <TextView android:text="0" android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:fontFamily="sans-serif-bold"
+            android:id="@+id/activity_main_tv_count"
+            android:textSize="25dp"
+        />
+    </LinearLayout>
+
+
+
+    <mehdi.sakout.fancybuttons.FancyButton
+
+        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:layout_weight="3"
+        fancy:fb_borderColor="#FFFFFF"
+        fancy:fb_borderWidth="0dp"
+        fancy:fb_defaultColor="@color/bluelight"
+        fancy:fb_focusColor="@color/bluelightdark"
+        android:id="@+id/activity_main_bsense"
+        android:fontFamily="sans-serif-light"
+        fancy:fb_iconPosition="top"
+        fancy:fb_radius="5dp"
+        android:gravity="center"
+        fancy:fb_text="Sense"
+        fancy:fb_textSize="30sp"
+        fancy:fb_textColor="#FFFFFF"
+        android:layout_gravity="center" />
+
+</LinearLayout>
