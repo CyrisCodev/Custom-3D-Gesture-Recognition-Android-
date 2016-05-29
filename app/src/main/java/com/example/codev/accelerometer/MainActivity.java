@@ -1,11 +1,13 @@
 package com.example.codev.accelerometer;
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Sensor senAccelerometer;
 
     private static final int ALARM_STATE_DELAY = 1;
-
+    private static int SPLASH_TIME_OUT = 2500;
 
     private long lastUpdate = 0;
     private float last_x;
@@ -121,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         }
 
                         initialTime=0;
+                        addDelayOnButtonClick();
                         unregistersensor();
                         sendReadingsToPC(logs);
                         //stopIncrmenting();
@@ -422,6 +425,32 @@ float x, y, z, gx=0, gy=0, gz=0;
 
         }
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        bsense.setEnabled(false);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        bsense.setEnabled(true);
+    }
+
+    public void addDelayOnButtonClick()
+    {
+        bsense.setEnabled(false);
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+
+                bsense.setEnabled(true);
+
+            }
+        }, SPLASH_TIME_OUT);
     }
 
     public void generateNoteOnSD(String sFileName, String sBody){
