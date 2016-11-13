@@ -24,7 +24,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@+id/iv_performGesture_menuActivity"
-            android:src="@mipmap/performGestureIcon"
+            android:src="@mipmap/gestureicon1"
             />
 
         <ImageView
@@ -32,6 +32,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@+id/iv_settings_menuActivity"
+            android:src="@mipmap/settingsicon1"
             />
 
         <ImageView
@@ -39,6 +40,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@+id/iv_appList_menuActivity"
+            android:src="@mipmap/appsavialableicon1"
             />
 
     </LinearLayout>
@@ -66,12 +68,22 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:text="Settings"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:textColor="@color/orange2"
             />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:text="Apps"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:textColor="@color/grey4"
             />
 
     </LinearLayout>
