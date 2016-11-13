@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.codev.accelerometer.MenuActivity">
+    tools:context=".Activities.MenuActivity">
 
     <FrameLayout
         android:layout_width="fill_parent"
@@ -12,80 +12,101 @@
         android:layout_weight="8"
         ></FrameLayout>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        >
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:id="@+id/iv_performGesture_menuActivity"
-            android:src="@mipmap/gestureicon1"
-            />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:id="@+id/iv_settings_menuActivity"
-            android:src="@mipmap/settingsicon1"
-            />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:id="@+id/iv_appList_menuActivity"
-            android:src="@mipmap/appsavialableicon1"
-            />
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
+        android:layout_weight="1.5"
         android:orientation="horizontal"
-        android:paddingBottom="5dp"
         >
 
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="Perform"
-            android:textSize="16sp"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center"
-            android:textColor="@color/lightgreen1"
-            />
+            android:id="@+id/ll_performGesture_menuActivity"
+            android:orientation="vertical"
+            >
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:text="Settings"
-            android:textSize="16sp"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center"
-            android:textColor="@color/orange2"
-            />
+            <ImageView
+                android:layout_height="0dp"
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/gestureicon1"
+                />
 
-        <TextView
+            <TextView
+                android:layout_height="0dp"
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:text="Perform"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:textColor="@color/lightgreen1"
+                />
+
+         </LinearLayout>
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="Apps"
-            android:textSize="16sp"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center"
-            android:textColor="@color/grey4"
-            />
+            android:id="@+id/ll_settings_menuActivity"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_height="0dp"
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/settingsicon1"
+                />
+
+            <TextView
+                android:layout_height="0dp"
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:text="Settings"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:textColor="@color/orange2"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:id="@+id/ll_appDetails_menuActivity"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_height="0dp"
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/appsavialableicon1"
+                />
+
+            <TextView
+                android:layout_height="0dp"
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:text="Apps"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:textColor="@color/grey4"
+                />
+
+        </LinearLayout>
+
 
     </LinearLayout>
+
+
 
 </LinearLayout>

@@ -12,7 +12,7 @@
         android:label="CustomGesture"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="CustomGesture">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,7 @@
         <activity
             android:name=".DemoActivity"
             android:label="@string/title_activity_demo"></activity>
-        <activity android:name=".MenuActivity">
+        <activity android:name=".Activities.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
