@@ -1,6 +1,7 @@
 package com.example.codev.accelerometer.Fragments;
 
 
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -173,7 +174,13 @@ public class PerformGestureFragment extends Fragment implements SensorEventListe
 
                 try {
 
-                    Socket s=new Socket("192.168.0.3", 8000);
+                    SharedPreferences prefss = getActivity().getSharedPreferences(file.getSpIpAddress(), getActivity().MODE_PRIVATE);
+                    String s1 = prefss.getString(file.getIpAddressString(), "192.168.0.5");
+
+                    SharedPreferences prefss2 = getActivity().getSharedPreferences(file.getSpPortNo(), getActivity().MODE_PRIVATE);
+                    int i1 = prefss.getInt(file.getPortNumberString(), 8000);
+
+                    Socket s=new Socket(s1, i1);
                     DataOutputStream dos=new DataOutputStream(s.getOutputStream());
 
                     Log.i("sending", lg);
