@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="35dp"
+    android:gravity="bottom"
+    tools:context="com.example.codev.accelerometer.Fragments.SettingsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="IP Address :"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textColor="@color/bluelightdark"
+        />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="10dp"
+        android:id="@+id/activity_main_etIPAddress"
+        android:padding="10dp"
+        />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="Port Number :"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textColor="@color/bluelightdark"
+        />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:id="@+id/activity_main_etPortNumber"
+        android:padding="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:text="Reset"
+            android:fontFamily="sans-serif-light"
+            android:background="@color/bluelight"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:id="@+id/btn_reset_fragmentSettings"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:text="Save"
+            android:layout_margin="5dp"
+            android:fontFamily="sans-serif-light"
+            android:background="@color/bluelight"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:id="@+id/btn_save_fragmentSettings"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

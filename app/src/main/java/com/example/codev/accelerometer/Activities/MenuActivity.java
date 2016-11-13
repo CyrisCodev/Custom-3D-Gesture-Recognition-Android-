@@ -7,12 +7,14 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.codev.accelerometer.Fragments.PerformGestureFragment;
+import com.example.codev.accelerometer.Fragments.SettingsFragment;
 import com.example.codev.accelerometer.R;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener{
 
     LinearLayout llPeformGesture, llSettings, llAppDetails;
     PerformGestureFragment performGestureFragment;
+    SettingsFragment settingsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,9 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         llAppDetails.setOnClickListener(this);
 
         performGestureFragment=new PerformGestureFragment();
+        settingsFragment=new SettingsFragment();
+
+        //intially replace the frame layout with detaulf i.e perform gesture fragment
         getSupportFragmentManager().beginTransaction().replace(R.id.fl_replacablePart_menuActivity, performGestureFragment).commit();
 
 
@@ -46,7 +51,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.ll_settings_menuActivity:
 
-                Toast.makeText(this, "2 clicked", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_replacablePart_menuActivity, settingsFragment).commit();
 
                 break;
 
