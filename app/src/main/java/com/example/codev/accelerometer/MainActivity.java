@@ -1,6 +1,5 @@
 package com.example.codev.accelerometer;
 
-import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -106,7 +105,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-                if(DELAY_COUNT==1) {
                     switch (event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
                             Log.i("button", "pressed");
@@ -124,16 +122,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                             }
 
                             initialTime = 0;
-                            addDelayOnButtonClick();
+                            //addDelayOnButtonClick();
                             unregistersensor();
-                            if(logs!=last_sent_string)
+                            if(logs!=last_sent_string&&(logs.length()<1100))
                             {
                                 sendReadingsToPC(logs);
                                 last_sent_string=logs;
                             }
                             //stopIncrmenting();
                     }
-                }
                 return true;
 
 
@@ -144,6 +141,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     private void sendReadingsToPC(final String lg) {
+
+        Log.i("logssent", "SEntttttt \n "+lg);
 
         Thread t=new Thread()
         {
