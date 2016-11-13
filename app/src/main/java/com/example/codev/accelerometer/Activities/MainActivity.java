@@ -1,5 +1,6 @@
 package com.example.codev.accelerometer.Activities;
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -20,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.codev.accelerometer.Fragments.PerformGestureFragment;
 import com.example.codev.accelerometer.R;
 
 import java.io.DataOutputStream;
@@ -73,9 +75,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      //  senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        //  senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         senSensorManager = (SensorManager) getSystemService("sensor");
-       senAccelerometer = senSensorManager.getDefaultSensor(ALARM_STATE_DELAY);
+        senAccelerometer = senSensorManager.getDefaultSensor(ALARM_STATE_DELAY);
         senAccelerometer.getResolution();
         //senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
@@ -107,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
+                if(DELAY_COUNT==1) {
                     switch (event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
                             Log.i("button", "pressed");
@@ -124,15 +127,16 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                             }
 
                             initialTime = 0;
-                            //addDelayOnButtonClick();
+                            addDelayOnButtonClick();
                             unregistersensor();
-                            if(logs!=last_sent_string&&(logs.length()<1100))
+                            if(logs!=last_sent_string)
                             {
                                 sendReadingsToPC(logs);
                                 last_sent_string=logs;
                             }
                             //stopIncrmenting();
                     }
+                }
                 return true;
 
 
@@ -143,8 +147,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     private void sendReadingsToPC(final String lg) {
-
-        Log.i("logssent", "SEntttttt \n "+lg);
 
         Thread t=new Thread()
         {
@@ -195,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private void registersensor()
     {
-       // senSensorManager.registerListener(this, senAccelerometer, SensorManager.SENSOR_DELAY_GAME);
+        // senSensorManager.registerListener(this, senAccelerometer, SensorManager.SENSOR_DELAY_GAME);
         senSensorManager.registerListener(this, senAccelerometer, SensorManager.SENSOR_DELAY_FASTEST);
     }
 
@@ -223,6 +225,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             initializeViews();
             initialTime=0;
             unregistersensor();
+            Intent i=new Intent();
+            i.setClass(getApplicationContext(), MenuActivity.class);
+            startActivity(i);
             return true;
         }
         if (id == R.id.activity_main_menu_settings) {
@@ -241,7 +246,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         return super.onOptionsItemSelected(item);
     }
-float x, y, z, gx=0, gy=0, gz=0;
+    float x, y, z, gx=0, gy=0, gz=0;
     float prevX=0, prevY=0, prevZ=0;
     float calX=0, calY=0, calZ=0;
     float nx=0, ny=0, nz=0;
@@ -286,106 +291,106 @@ float x, y, z, gx=0, gy=0, gz=0;
 ////                z = event.values[2] - gz;
 //            }
 
-                 x = event.values[0];
-                 y = event.values[1];
-                 z = event.values[2];
+            x = event.values[0];
+            y = event.values[1];
+            z = event.values[2];
 
 
-          //  x=x*10f;
-          // y=y*10f;
-          //  z=z*10f;
+            //  x=x*10f;
+            // y=y*10f;
+            //  z=z*10f;
 
             String sx;
-                    //= String.valueOf(x);
+            //= String.valueOf(x);
 
             String sy;
-                    //= String.valueOf(y);
+            //= String.valueOf(y);
 
             String sz;
-                    //= String.valueOf(z);
+            //= String.valueOf(z);
 
 
             long curTime = System.currentTimeMillis();
 
             if (initialTime == 0) {
                 initialTime = curTime;
-               // prevX=x;
-              //  prevY=y;
-               // prevZ=z;
+                // prevX=x;
+                //  prevY=y;
+                // prevZ=z;
                 prevX=-0.126f;
                 prevY=-0.035f;
                 prevZ=-0.323f;
-              //  Log.i("gravityy", "called");
+                //  Log.i("gravityy", "called");
             }
 
-         //   if (curTime-initialTime<1000) {
+            //   if (curTime-initialTime<1000) {
 
-                if ((curTime - lastUpdate) > delayTime) {
+            if ((curTime - lastUpdate) > delayTime) {
 
-                   // Log.i("delayyy", String.valueOf(delayTime));
+                // Log.i("delayyy", String.valueOf(delayTime));
 
                 //    Log.i("accelerationss " + String.valueOf(countReadings), sx + " " + sy + " " + sz);
 
-                   // logs=logs+"\n"+sx+" "+sy+" "+sz;
-                  //  Log.i("valuesss","\n"+sx+" "+sy+" "+sz);
+                // logs=logs+"\n"+sx+" "+sy+" "+sz;
+                //  Log.i("valuesss","\n"+sx+" "+sy+" "+sz);
 //
-                    prevX=prevX*0.9f+x*0.1f;
-                    prevY=prevY*0.9f+y*0.1f;
-                    prevZ=prevZ*0.9f+z*0.1f;
+                prevX=prevX*0.9f+x*0.1f;
+                prevY=prevY*0.9f+y*0.1f;
+                prevZ=prevZ*0.9f+z*0.1f;
 //
-              //      Log.i("gravityy", String.valueOf(prevX)+" "+String.valueOf(prevY)+" "+String.valueOf(prevZ));
+                //      Log.i("gravityy", String.valueOf(prevX)+" "+String.valueOf(prevY)+" "+String.valueOf(prevZ));
 
-                    calX=x-prevX;
-                    calY=y-prevY;
-                    calZ=z-prevZ;
+                calX=x-prevX;
+                calY=y-prevY;
+                calZ=z-prevZ;
 //
 //
 
-                    DecimalFormat decimalFormat = new DecimalFormat("0.000");
-                    decimalFormat.setMaximumFractionDigits(3);
+                DecimalFormat decimalFormat = new DecimalFormat("0.000");
+                decimalFormat.setMaximumFractionDigits(3);
 //                    //this.xSI.setText("x: " + decimalFormat.format((double)calX));
 //
-                    sx=decimalFormat.format((double)calX);
-                    sy=decimalFormat.format((double)calY);
-                    sz=decimalFormat.format((double)calZ);
+                sx=decimalFormat.format((double)calX);
+                sy=decimalFormat.format((double)calY);
+                sz=decimalFormat.format((double)calZ);
 //
-                    nx=calX;
-                    ny=calY;
-                    nz=calZ;
+                nx=calX;
+                ny=calY;
+                nz=calZ;
 
-                    nx = (float) (((double) ((int) (((double)nx) * 1000.0d))) / 1000.0d);
-                    ny = (float) (((double) ((int) (((double)ny) * 1000.0d))) / 1000.0d);
-                    nz = (float) (((double) ((int) (((double)nz) * 1000.0d))) / 1000.0d);
+                nx = (float) (((double) ((int) (((double)nx) * 1000.0d))) / 1000.0d);
+                ny = (float) (((double) ((int) (((double)ny) * 1000.0d))) / 1000.0d);
+                nz = (float) (((double) ((int) (((double)nz) * 1000.0d))) / 1000.0d);
 
 //
-                   // Log.i("accelerationss " + String.valueOf(countReadings), sx + " " + sy + " " + sz);
-                   // Log.i("accelerationss ", String.valueOf(nx)+" "+String.valueOf(ny)+" "+String.valueOf(nz));
+                // Log.i("accelerationss " + String.valueOf(countReadings), sx + " " + sy + " " + sz);
+                // Log.i("accelerationss ", String.valueOf(nx)+" "+String.valueOf(ny)+" "+String.valueOf(nz));
 
 //                    //logs=logs+"\n"+String.valueOf(calX)+" "+String.valueOf(calY)+" "+String.valueOf(calZ);
 //
-                    //logs=logs+"\n"+sx+" "+sy+" "+sz;
-                    logs=logs+"\n"+String.valueOf(nx)+" "+String.valueOf(ny)+" "+String.valueOf(nz);
-                  //  Log.i("accelerationssi" + String.valueOf(countReadings), sx + " " + sy + " " + sz);
+                //logs=logs+"\n"+sx+" "+sy+" "+sz;
+                logs=logs+"\n"+String.valueOf(nx)+" "+String.valueOf(ny)+" "+String.valueOf(nz);
+                //  Log.i("accelerationssi" + String.valueOf(countReadings), sx + " " + sy + " " + sz);
 
-                    squarex=nx*nx;
-                    squarey=ny*ny;
-                    squarez=nz*nz;
+                squarex=nx*nx;
+                squarey=ny*ny;
+                squarez=nz*nz;
 
-                    resultantmod= (float) Math.sqrt(squarex+squarey+squarez);
+                resultantmod= (float) Math.sqrt(squarex+squarey+squarez);
 
-                    Log.i("accelerationssi",String.valueOf(resultantmod));
+                Log.i("accelerationssi",String.valueOf(resultantmod));
 
-                    lastUpdate = curTime;
-                    tvx.setText(sx);
-                    tvy.setText(sy);
-                    tvz.setText(sz);
-                    tvcount.setText(String.valueOf(countReadings));
-                    countReadings++;
+                lastUpdate = curTime;
+                tvx.setText(sx);
+                tvy.setText(sy);
+                tvz.setText(sz);
+                tvcount.setText(String.valueOf(countReadings));
+                countReadings++;
 
-                }
+            }
 
-          //
-          // }
+            //
+            // }
         }
 
 
@@ -406,7 +411,7 @@ float x, y, z, gx=0, gy=0, gz=0;
         {
             case R.id.iv_upbutton:
 
-               Log.i("checkinngclicks", "upbutton");
+                Log.i("checkinngclicks", "upbutton");
                 sendReadingsToPC("up up");
 
                 break;
@@ -436,13 +441,13 @@ float x, y, z, gx=0, gy=0, gz=0;
     @Override
     protected void onPause() {
         super.onPause();
-       // bsense.setEnabled(false);
+        // bsense.setEnabled(false);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-       // bsense.setEnabled(true);
+        // bsense.setEnabled(true);
     }
 
     public void addDelayOnButtonClick()
@@ -455,7 +460,7 @@ float x, y, z, gx=0, gy=0, gz=0;
             public void run() {
 
                 DELAY_COUNT=1;
-               //bsense.setEnabled(true);
+                //bsense.setEnabled(true);
 
             }
         }, SPLASH_TIME_OUT);

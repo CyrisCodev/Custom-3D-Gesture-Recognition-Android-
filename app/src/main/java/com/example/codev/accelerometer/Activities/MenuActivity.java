@@ -46,18 +46,21 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.ll_performGesture_menuActivity:
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fl_replacablePart_menuActivity, performGestureFragment).commit();
+                setTitle("Gesture Recognition");
 
                 break;
 
             case R.id.ll_settings_menuActivity:
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fl_replacablePart_menuActivity, settingsFragment).commit();
+                setTitle("Settings");
 
                 break;
 
             case R.id.ll_appDetails_menuActivity:
 
                 Toast.makeText(this, "3 clicked", Toast.LENGTH_SHORT).show();
+                setTitle("Supported Apps Information");
 
                 break;
         }

@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MenuActivity">
+        <activity android:name=".Activities.MenuActivity"
+            android:label="CustomGesture">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
