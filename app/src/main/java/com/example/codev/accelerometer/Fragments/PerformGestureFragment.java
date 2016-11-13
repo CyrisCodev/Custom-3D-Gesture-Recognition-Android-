@@ -27,6 +27,7 @@ public class PerformGestureFragment extends Fragment {
         v=inflater.inflate(R.layout.fragment_perform_gesture, container, false);
 
 
+
         return v;
     }
 

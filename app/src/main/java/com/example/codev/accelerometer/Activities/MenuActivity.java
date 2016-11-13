@@ -1,16 +1,18 @@
 package com.example.codev.accelerometer.Activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.codev.accelerometer.Fragments.PerformGestureFragment;
 import com.example.codev.accelerometer.R;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener{
 
     LinearLayout llPeformGesture, llSettings, llAppDetails;
+    PerformGestureFragment performGestureFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         llSettings.setOnClickListener(this);
         llAppDetails.setOnClickListener(this);
 
+        performGestureFragment=new PerformGestureFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fl_replacablePart_menuActivity, performGestureFragment).commit();
+
+
     }
 
     @Override
@@ -34,7 +40,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         {
             case R.id.ll_performGesture_menuActivity:
 
-                Toast.makeText(this, "1 clicked", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_replacablePart_menuActivity, performGestureFragment).commit();
 
                 break;
 

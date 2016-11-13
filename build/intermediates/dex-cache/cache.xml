@@ -2,11 +2,46 @@
 <items version="2" >
 
     <item
-        jar="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\exploded-aar\com.github.medyo\fancybuttons\1.5\jars\classes.jar"
+        jar="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="511320053169bdc5d8445a414db09e7cdd10d920">
-        <dex dex="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\pre-dexed\debug\classes-bcb551813e3cc6e6200d922bb9ee2242c448bcca.jar" />
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\pre-dexed\debug\classes-d418e4053403e31141c436e1d1fb7bcbad38978a.jar" />
+    </item>
+    <item
+        jar="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\pre-dexed\debug\classes-8f0f83ff1b440d717a67c43329cae2ee9ddca3f6.jar" />
+    </item>
+    <item
+        jar="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\pre-dexed\debug\classes-376ee58d756407e950f3791816cc676a6ac583be.jar" />
+    </item>
+    <item
+        jar="C:\Users\Codev\AppData\Local\ANDROIDSDK\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0-6160756c1f88684dc021059a5320a78d6477e1e0.jar" />
+    </item>
+    <item
+        jar="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0-c06891e736ebb16a7bb1533b99d060e541046cdb.jar" />
+    </item>
+    <item
+        jar="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="D:\projects\Android Apps\Gesture Detection\Accelerometer\MyApplication\app\build\intermediates\pre-dexed\debug\classes-2790cc7060ee2836d97ec7d48ac445e5fdee6acf.jar" />
     </item>
 
 </items>
