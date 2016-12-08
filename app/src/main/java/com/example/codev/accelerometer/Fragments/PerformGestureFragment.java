@@ -75,7 +75,7 @@ public class PerformGestureFragment extends Fragment implements SensorEventListe
     String last_sent_string="0";
     String sUp="Up", sDown="Down", sLeft="Left", sRight="Right";
 
-
+    String performingApplication;
 
     public PerformGestureFragment() {
         // Required empty public constructor
@@ -184,8 +184,8 @@ public class PerformGestureFragment extends Fragment implements SensorEventListe
                     DataOutputStream dos=new DataOutputStream(s.getOutputStream());
 
                     Log.i("sending", lg);
-
-                    dos.writeUTF(lg);
+                    performingApplication="pic";
+                    dos.writeUTF(performingApplication+lg);
                     dos.close();
                     s.close();
 
